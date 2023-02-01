@@ -9,21 +9,22 @@ import cloneDeep from 'lodash.clonedeep'
  * @returns {boolean}
  */
 function hasPermission (permission, route) {
-  if (route.meta && route.meta.permission) {
-    console.log('hasPermission', permission)
-    if (permission === undefined) {
-      return false
-    }
-    let flag = false
-    for (let i = 0, len = permission.length; i < len; i++) {
-      flag = route.meta.permission.includes(permission[i])
-      if (flag) {
-        return true
-      }
-    }
-    return false
-  }
   return true
+  // if (route.meta && route.meta.permission) {
+  //   console.log('hasPermission', permission)
+  //   if (permission === undefined) {
+  //     return false
+  //   }
+  //   let flag = false
+  //   for (let i = 0, len = permission.length; i < len; i++) {
+  //     flag = route.meta.permission.includes(permission[i])
+  //     if (flag) {
+  //       return true
+  //     }
+  //   }
+  //   return false
+  // }
+  // return true
 }
 
 /**

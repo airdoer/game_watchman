@@ -4,6 +4,7 @@ const api = {
   user: '/user',
   role: '/role',
   service: '/service',
+  battleList: '/battleList',
   permission: '/permission',
   permissionNoPager: '/permission/no-pager',
   orgTree: '/org/tree'
@@ -15,7 +16,10 @@ export function getUserList (parameter) {
   return request({
     url: api.user,
     method: 'get',
-    params: parameter
+    params: parameter,
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
   })
 }
 
@@ -30,6 +34,14 @@ export function getRoleList (parameter) {
 export function getServiceList (parameter) {
   return request({
     url: api.service,
+    method: 'get',
+    params: parameter
+  })
+}
+
+export function getBattleList (parameter) {
+  return request({
+    url: api.battleList,
     method: 'get',
     params: parameter
   })

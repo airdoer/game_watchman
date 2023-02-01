@@ -1,7 +1,7 @@
 import Mock from 'mockjs2'
 import { builder, getQueryParameters } from '../util'
 
-const totalCount = 5701
+const totalCount = 25
 
 const serverList = (options) => {
   const parameters = getQueryParameters(options)
@@ -35,6 +35,55 @@ const serverList = (options) => {
     data: result
   })
 }
+
+// const BattleData = []
+//
+// const serverNameList = ['深海服', '甜食服']
+// const versionList = [1.1, 1.2, 1.3]
+//
+// function initBattleData () {
+//   for (let i = 1; i < totalCount + 1; i++) {
+//     const tmpKey = i
+//     BattleData.push({
+//       key: tmpKey,
+//       id: tmpKey,
+//       GameId: Mock.mock('@integer(1, 999)'),
+//       playerList: Mock.mock('@string(5)'),
+//       serverName: serverNameList[Mock.mock('@integer(0, 1)')],
+//       version: versionList[Mock.mock('@integer(0, 2)')],
+//       startTime: Mock.mock('@datetime'),
+//       duration: Mock.mock('@float(60, 180)'),
+//       consistStatus: Mock.mock('@boolean')
+//     })
+//   }
+// }
+//
+// initBattleData()
+//
+// const battleList = (options) => {
+//   const parameters = getQueryParameters(options)
+//
+//   const pageNo = parseInt(parameters.pageNo)
+//   const pageSize = parseInt(parameters.pageSize)
+//   const totalPage = Math.ceil(totalCount / pageSize)
+//   const key = (pageNo - 1) * pageSize
+//   const next = (pageNo >= totalPage ? (totalCount % pageSize) : pageSize)
+//   console.log(parameters)
+//   const validBattleData = BattleData.filter(x =>
+//     (!parameters.version || parameters.version.length <= 0 || parameters.version.includes(x.version.toString())) &&
+//     (!parameters.serverName || parameters.serverName.length <= 0 || parameters.serverName.includes(x.serverName))
+//   )
+//   console.log(validBattleData)
+//   const result = validBattleData.slice(key, key + next)
+//
+//   return builder({
+//     pageSize: pageSize,
+//     pageNo: pageNo,
+//     totalCount: totalCount,
+//     totalPage: totalPage,
+//     data: result
+//   })
+// }
 
 const projects = () => {
   return builder({
@@ -250,3 +299,4 @@ Mock.mock(/\/list\/search\/projects/, 'get', projects)
 Mock.mock(/\/workplace\/activity/, 'get', activity)
 Mock.mock(/\/workplace\/teams/, 'get', teams)
 Mock.mock(/\/workplace\/radar/, 'get', radar)
+// Mock.mock(/\/battleList/, 'get', battleList)

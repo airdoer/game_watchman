@@ -267,14 +267,13 @@ export const asyncRouterMap = [
             ]
           }
         ]
-      }
+      },
 
       // other
-      /*
       {
         path: '/other',
         name: 'otherPage',
-        component: PageView,
+        component: RouteView,
         meta: { title: '其他组件', icon: 'slack', permission: [ 'dashboard' ] },
         redirect: '/other/icon-selector',
         children: [
@@ -317,7 +316,7 @@ export const asyncRouterMap = [
               {
                 path: '/other/list/system-role',
                 name: 'SystemRole',
-                component: () => import('@/views/role/RoleList'),
+                component: () => import('@/views/other/RoleList'),
                 meta: { title: '角色列表2', keepAlive: true }
               },
               {
@@ -329,8 +328,24 @@ export const asyncRouterMap = [
             ]
           }
         ]
+      },
+      // frame_consist 帧同步一致性
+      {
+        path: '/frame',
+        name: 'frame',
+        component: RouteView,
+        redirect: '/frame/frame-consist',
+        meta: { title: 'menu.frame', icon: 'safety-certificate', permission: ['frame'] },
+        children: [
+          {
+            path: '/frame/frame-consist',
+            name: 'FrameConsist',
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            component: () => import('@/views/frame/FrameConsist'),
+            meta: { title: 'menu.frame-consist', keepAlive: true, permission: ['frame'] }
+          }
+        ]
       }
-      */
     ]
   },
   {
