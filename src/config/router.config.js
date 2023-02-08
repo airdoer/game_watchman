@@ -329,6 +329,7 @@ export const asyncRouterMap = [
           }
         ]
       },
+
       // frame_consist 帧同步一致性
       {
         path: '/frame',
@@ -343,11 +344,19 @@ export const asyncRouterMap = [
             hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
             component: () => import('@/views/frame/FrameConsist'),
             meta: { title: 'menu.frame-consist', keepAlive: true, permission: ['frame'] }
+          },
+          {
+            path: '/frame/frame-details',
+            name: 'BattleDetail',
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            component: () => import('@/views/frame/BattleDetail'),
+            meta: { title: 'menu.frame-details', keepAlive: true, permission: ['frame'] }
           }
         ]
       }
     ]
   },
+
   {
     path: '*',
     redirect: '/404',

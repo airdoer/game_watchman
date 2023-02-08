@@ -40,7 +40,7 @@ const columns = [
   },
   {
     title: '玩家',
-    dataIndex: 'playerList'
+    dataIndex: 'playerNames'
   },
   {
     title: '版本号',
@@ -122,11 +122,7 @@ export default {
     onClickDetail (record) {
       console.log(record.GameId)
       console.log(process.env.VUE_APP_API_BASE_URL)
-      getBattleList({})
-        .then(res => {
-          console.log(res.result)
-          return res.result
-        })
+      this.$router.push({ name: 'BattleDetail', params: { gameId: record.GameId } })
     },
     onSelectChange (selectedRowKeys, selectedRows) {
       this.selectedRowKeys = selectedRowKeys

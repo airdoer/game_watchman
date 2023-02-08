@@ -37,5 +37,6 @@ export default {
     'menu.account.trigger': '触发报错',
     'menu.account.logout': '退出登录',
     'menu.frame': '帧同步功能',
-    'menu.frame-consist': '帧同步一致性检测'
+    'menu.frame-consist': '帧同步一致性检测',
+    'menu.frame-details': '对局详情'
 }

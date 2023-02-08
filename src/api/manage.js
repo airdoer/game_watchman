@@ -5,6 +5,8 @@ const api = {
   role: '/role',
   service: '/service',
   battleList: '/battleList',
+  battleDetail: '/battleDetail',
+  playerList: '/playerList',
   permission: '/permission',
   permissionNoPager: '/permission/no-pager',
   orgTree: '/org/tree'
@@ -42,6 +44,22 @@ export function getServiceList (parameter) {
 export function getBattleList (parameter) {
   return request({
     url: api.battleList,
+    method: 'get',
+    params: parameter
+  })
+}
+
+export function getBattleDetail (parameter, id) {
+  return request({
+    url: api.battleDetail + '?gameId=' + id,
+    method: 'get',
+    params: parameter
+  })
+}
+
+export function getPlayerList (parameter, id) {
+  return request({
+    url: api.playerList + '?gameId=' + id,
     method: 'get',
     params: parameter
   })
