@@ -49,17 +49,17 @@ export function getBattleList (parameter) {
   })
 }
 
-export function getBattleDetail (parameter, id) {
+export function getBattleDetail (parameter, battleId) {
   return request({
-    url: api.battleDetail + '?gameId=' + id,
+    url: api.battleDetail + '?battleId=' + battleId,
     method: 'get',
     params: parameter
   })
 }
 
-export function getPlayerList (parameter, id) {
+export function getPlayerList (parameter, battleId) {
   return request({
-    url: api.playerList + '?gameId=' + id,
+    url: api.playerList + '?battleId=' + battleId,
     method: 'get',
     params: parameter
   })

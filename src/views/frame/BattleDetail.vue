@@ -4,7 +4,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="key"
+        rowKey="id"
         :columns="columns"
         :data="loadData"
         :alert="false"
@@ -24,7 +24,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="key"
+        rowKey="id"
         :columns="columns2"
         :data="loadData"
         :alert="false"
@@ -37,7 +37,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="key"
+        rowKey="id"
         :columns="columns3"
         :data="loadData3"
         :alert="false"
@@ -85,7 +85,7 @@ const columns2 = [
   },
   {
     title: '收到不一致帧',
-    dataIndex: 'inconsistentCounts'
+    dataIndex: 'inconsistentFrameCounts'
   }
 ]
 
@@ -145,10 +145,10 @@ export default {
       queryParam: {},
       // 加载数据方法 必须为 Promise 对象
       loadData: parameter => {
-        const gameId = this.$route.params.gameId
+        const battleId = this.$route.params.battleId
         const requestParameters = Object.assign({}, parameter, this.queryParam)
         console.log('loadData request parameters:', requestParameters)
-        return getBattleDetail(requestParameters, gameId)
+        return getBattleDetail(requestParameters, battleId)
           .then(res => {
             console.log(res.result)
             this.battleData = res.result.data
@@ -156,10 +156,10 @@ export default {
           })
       },
       loadData3: parameter => {
-        const gameId = this.$route.params.gameId
+        const battleId = this.$route.params.battleId
         const requestParameters = Object.assign({}, parameter, this.queryParam)
         console.log('loadData request parameters:', requestParameters)
-        return getPlayerList(requestParameters, gameId)
+        return getPlayerList(requestParameters, battleId)
           .then(res => {
             console.log(res.result)
             this.battleData = res.result.data

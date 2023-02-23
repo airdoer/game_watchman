@@ -5,7 +5,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="key"
+        rowKey="id"
         :columns="columns"
         :data="loadData"
         :alert="true"
@@ -36,7 +36,7 @@ import { getBattleList } from '@/api/manage'
 const columns = [
   {
     title: 'GameID',
-    dataIndex: 'GameId'
+    dataIndex: 'gameId'
   },
   {
     title: '玩家',
@@ -120,9 +120,9 @@ export default {
   },
   methods: {
     onClickDetail (record) {
-      console.log(record.GameId)
+      console.log(record.gameId)
       console.log(process.env.VUE_APP_API_BASE_URL)
-      this.$router.push({ name: 'BattleDetail', params: { gameId: record.GameId } })
+      this.$router.push({ name: 'BattleDetail', params: { battleId: record.id } })
     },
     onSelectChange (selectedRowKeys, selectedRows) {
       this.selectedRowKeys = selectedRowKeys
