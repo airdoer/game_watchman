@@ -5,7 +5,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="id"
+        rowKey="gameId"
         :columns="columns"
         :data="loadData"
         :alert="true"
@@ -122,7 +122,7 @@ export default {
     onClickDetail (record) {
       console.log(record.gameId)
       console.log(process.env.VUE_APP_API_BASE_URL)
-      this.$router.push({ name: 'BattleDetail', params: { battleId: record.id } })
+      this.$router.push({ name: 'BattleDetail', params: { battleId: record.gameId } })
     },
     onSelectChange (selectedRowKeys, selectedRows) {
       this.selectedRowKeys = selectedRowKeys

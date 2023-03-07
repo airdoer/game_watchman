@@ -4,7 +4,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="id"
+        rowKey="gameId"
         :columns="columns"
         :data="loadData"
         :alert="false"
@@ -24,7 +24,7 @@
       <s-table
         ref="table"
         size="default"
-        rowKey="id"
+        rowKey="gameId"
         :columns="columns2"
         :data="loadData"
         :alert="false"
